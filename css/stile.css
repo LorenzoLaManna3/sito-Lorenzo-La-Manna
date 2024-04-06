@@ -10,6 +10,7 @@ body {
     gap: 0;
     max-width: 1000px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 img {
@@ -33,7 +34,7 @@ div.posizionefreccia {
 .freccia {
     display: flex;
     position: absolute;
-    height: 15px;
+    height: 30px;
     width: auto;
     right: 0.5%;
     bottom: 2%;
@@ -57,25 +58,26 @@ div.posizionefreccia {
 }
 
 header {
-    margin: 12px 0px;
+    margin: 24px -500px;
     display: flex;
     justify-content: space-between;
-    padding: 6px 24px;
+    padding: 12px 524px;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
     background-color: rgb(255, 255, 255);
+    z-index: 10;
 }
 
 div.icone {
-    height: 12px;
+    height: 24px;
     display: flex;
     justify-content: right;
-    gap: 12px;
+    gap: 24px;
 }
 
 div.logo {
-    height: 12px;
+    height: 24px;
     display: flex;
     justify-content: left;
 }
@@ -99,24 +101,20 @@ main {
 
 .title{
     margin: 10% 5%;
-    font-size: 25px;
+    font-size: 50px;
     display: inline-block;
 }
 
 .sezione-testo-immagine1 {
     display: inline-block;
     margin-left: 5%;
-    margin-right: 0;
-    font-size: 10px;
-    max-width: 1000px;
+    margin-right:-100%;
 }
 
 .sezione-testo-immagine2 {
     display: inline-block;
     margin-right: 5%;
-    margin-left: 0;
-    font-size: 10px;
-    max-width: 1000px;
+    margin-left:-100%;
 }
 
 .color1, .color3 {
@@ -124,7 +122,8 @@ main {
     flex-direction: row-reverse;
     gap: 5%;
     padding: 25px;
-    border-left: 2000px;
+    margin-right: 25px;
+    padding-right: 50%;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
 }
@@ -134,7 +133,8 @@ main {
     gap: 5%;
     padding: 25px;
     background-color: #FF5236;
-    border-right: 100%;
+    margin-left: 25px;
+    padding-left: 50%;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
@@ -149,13 +149,14 @@ main {
 }
 
 .color1, .color2, .color3 {
-    align-items: center;
+    align-items: stretch;
+    min-height: 100%;
 }
 
 
 .immagine {
-    display: block;
     width: 33%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -168,7 +169,12 @@ main {
 }
 
 p {
-    font-size: 15px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    font-size: 30px;
     font-family: "Roboto", sans-serif;
         font-weight: 700;
         font-style: normal;
@@ -180,27 +186,30 @@ p {
 }
 
 .testoautori {
-    font-size: 9px;
+    font-size: 18px;
 }
+
 footer {
-    margin: 12px 0px;
+    margin: 24px auto;
     display: flex;
-    justify-content: center;
-    padding: 6px 0px;
+    flex-direction: column;
+    padding: 12px auto;
     top: 0px;
     background-color: rgb(255, 255, 255);
 }
 
 .condividi {
-    font-size: 9px;
+    text-align: center;
+    font-size: 18px;
 }
 
 .condividi:hover {
     text-decoration: underline;
     cursor: pointer;
+
 }
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 10px;
 }
 ::-webkit-scrollbar-track {
     background: #ffffff00;
@@ -215,47 +224,58 @@ footer {
 
 @media (max-width:600px) {
     header {
-        margin: 8px 0px; /**/
-        padding: 4px 8px; /**/
-        z-index: 10;
+        margin: 16px 0px; /**/
+        padding: 8px 16px; /**/
     }
 
     div.icone {
-        height: 8px; /**/
-        gap: 12px; /**/
+        height: 16px; /**/
+        gap: 24px; /**/
     }
     
     div.logo {
-        height: 8px; /**/
+        height: 16px; /**/
     }
 
     main {
-        gap: 20px;
+        gap: 40px;
     }
 
     .title{
         margin: 2% 5%;
-        font-size: 15px;
+        font-size: 30px;
+    }
+
+    .sezione-testo-immagine1{
+        margin-right: 0;
+    }
+    
+    .sezione-testo-immagine2{
+        margin-left: 0;
     }
 
     .color1, .color2, .color3 {
         flex-direction: column-reverse;
-        gap: 15px;
-        padding: 15px;
+        align-items: center;
+        gap: 30px;
+        padding: 30px;
     }
   
     .color1, .color3 {
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        margin-right: 0;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
     }
 
     .color2 {
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
+        margin-left: 0;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
     }
 
     .immagine {
-        width: 100%;
+        width: auto;
+        height: auto;
         z-index: 5;
     }
     
@@ -269,11 +289,18 @@ footer {
         left: 5%;
     }
 
-
     p {
-        font-size: 9px;
+        position: static;
+        top: 0%;
+        left: 0%;
+        transform: translate(0%, 0%);
+        font-size: 18px;
         font-family: "Roboto", sans-serif;
             font-weight: 700;
             font-style: normal;
+    }
+
+    .freccia {
+        display: none;
     }
 }
